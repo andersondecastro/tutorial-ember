@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Ember Starter Kit</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <script type="text/x-handlebars">
+    <h2>Música Brasileira</h2>
+
+    {{#link-to 'index'}} Home {{/link-to}}
+    {{#link-to 'artistas'}} Artistas {{/link-to}}
+    {{#link-to 'musicas'}} Músicas {{/link-to}}
+    {{#link-to 'login'}} Login {{/link-to}}
+
+    {{outlet}}
+  </script>
+
+  <script type="text/x-handlebars" id="index">
+    <h4> Bem vindo a nossa aplicação! <h4>
+  </script>
+
+  <script type="text/x-handlebars" id="artistas">
+    <h3> Artistas </h3>
+
+    {{#each model}}
+    	<div>
+    		<h4>{{nome}}</h4> 
+    		gênero: {{genero}} <br>
+    		{{qtd_musicas}} músicas.
+    		<p> <button class="btn btn-danger" {{action 'remover' this}}> remover </button> </p>
+    	</div>
+    {{else}}
+    	Nenhum artista encontrado.
+    {{/each}}
+  </script>
+
+  <script type="text/x-handlebars" id="musicas">
+    <h3> Músicas </h3>
+
+    {{#each model}}
+      <div>
+        <h4>{{nome}}</h4> 
+        artista: {{artista}} <br>
+        ouvida <strong> {{plays}} </strong> vezes.
+      </div>
+    {{/each}}
+  </script>
+
+  <script type="text/x-handlebars" id="login">
+    <h3> Login </h3>
+
+    <form {{action 'autenticar' on='submit'}}>
+      {{input type='text' value=email}}
+      {{input type='password' value=senha}}
+      <input type='submit' value=Entrar>
+    </form>
+  </script>
+
+  <script type="text/x-handlebars" id="favoritos">
+    <h3> Meus Favoritos </h3>
+
+
+  </script>
+
+  <script src="js/libs/jquery-1.10.2.js"></script>
+  <script src="js/libs/handlebars-1.1.2.js"></script>
+  <script src="js/libs/ember-1.7.0.js"></script>
+  <script src="js/app.js"></script>
+  <!-- to activate the test runner, add the "?test" query string parameter -->
+  <script src="tests/runner.js"></script>
+</body>
+</html>
