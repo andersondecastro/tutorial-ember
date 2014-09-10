@@ -13,7 +13,6 @@
     {{#link-to 'index'}} Home {{/link-to}}
     {{#link-to 'artistas'}} Artistas {{/link-to}}
     {{#link-to 'musicas'}} Músicas {{/link-to}}
-    {{#link-to 'login'}} Login {{/link-to}}
 
     {{outlet}}
   </script>
@@ -49,21 +48,6 @@
     {{/each}}
   </script>
 
-  <script type="text/x-handlebars" id="login">
-    <h3> Login </h3>
-
-    <form {{action 'autenticar' on='submit'}}>
-      {{input type='text' value=email}}
-      {{input type='password' value=senha}}
-      <input type='submit' value=Entrar>
-    </form>
-  </script>
-
-  <script type="text/x-handlebars" id="favoritos">
-    <h3> Meus Favoritos </h3>
-
-
-  </script>
 
   <script src="js/libs/jquery-1.10.2.js"></script>
   <script src="js/libs/handlebars-1.1.2.js"></script>

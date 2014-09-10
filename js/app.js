@@ -3,8 +3,6 @@ App = Ember.Application.create();
 App.Router.map(function() {
   this.route('musicas');
   this.route('artistas');
-  this.route('login');
-  this.route('favoritos');
 });
 
 
@@ -40,21 +38,4 @@ App.ArtistasController = Ember.ObjectController.extend({
       
     }
   }
-});
-
-App.LoginController = Ember.Controller.extend({
-  
-  actions: {
-    autenticar: function () {
-      var data = this.getProperties('email', 'senha');
-      if ( data.email == 'ana@gmail.com' && data.senha == 'batata' ) {
-        alert('Autenticação Realizada!');
-        this.transitionToRoute('favoritos');
-      } else {
-        alert('Usuário ou senha incorretos.');
-        return false;
-      }
-		}
-	}
-
 });
